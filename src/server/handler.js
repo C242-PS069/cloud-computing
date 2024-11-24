@@ -1,4 +1,5 @@
 const { articles, detailsArticle } = require('../api/articles');
+const banners = require('../api/banner');
 
 const articlesApi = (request, h) => {
     const articlesList = articles();
@@ -12,10 +13,10 @@ const articlesApi = (request, h) => {
         .code(200);
 };
 
-const detailsArticleApi = async (request, h) => {
+const detailsArticleApi = (request, h) => {
     const { id } = request.params;
 
-    const article = await detailsArticle(id);
+    const article = detailsArticle(id);
 
     if (!article) {
         return h
@@ -35,4 +36,16 @@ const detailsArticleApi = async (request, h) => {
         .code(200);
 };
 
-module.exports = { articlesApi, detailsArticleApi };
+const bannersApi = async (request, h) => {
+    const bannerList = await banners();
+
+    return h
+        .response({
+            status: 'success',
+            message: 'Articles fetched successfully',
+            data: bannerList,
+        })
+        .code(200);
+};
+
+module.exports = { articlesApi, detailsArticleApi, bannersApi };
