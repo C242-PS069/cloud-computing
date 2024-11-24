@@ -1,37 +1,38 @@
-const axios = require('axios');
-require('dotenv').config();
+const { articles, detailsArticle } = require('../api/articles');
 
-const articlesApi = async (request, h) => {
-    try {
-        const response = await axios.get(
-            `http://api.mediastack.com/v1/news?access_key=${process.env.API_KEY}&keywords=sampah&countries=id&limit=10`
-        );
+const articlesApi = (request, h) => {
+    const articlesList = articles();
 
-        const articles = response.data.data;
-
-        return h
-            .response({
-                status: 'success',
-                message: 'Articles fetched successfully',
-                data: articles.map((article) => ({
-                    title: article.title,
-                    image: article.image,
-                    description: article.description,
-                    url: article.url,
-                    published_at: article.published_at,
-                })),
-            })
-            .code(200);
-    } catch (error) {
-        console.error(error.message);
-        return h
-            .response({
-                staus: 'failed',
-                message: 'Failed to fetch articles',
-                data: [],
-            })
-            .code(500);
-    }
+    return h
+        .response({
+            status: 'success',
+            message: 'Articles fetched successfully',
+            data: articlesList,
+        })
+        .code(200);
 };
 
-module.exports = { articlesApi };
+const detailsArticleApi = async (request, h) => {
+    const { id } = request.params;
+
+    const article = await detailsArticle(id);
+
+    if (!article) {
+        return h
+            .response({
+                status: 'fail',
+                message: `Article with ID ${id} not found`,
+            })
+            .code(404);
+    }
+
+    return h
+        .response({
+            status: 'success',
+            message: 'Article fetched successfully',
+            data: article,
+        })
+        .code(200);
+};
+
+module.exports = { articlesApi, detailsArticleApi };
