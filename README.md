@@ -2,7 +2,7 @@
 
 Dokumentasi learning path cloud computing yang digunakan pada Capstone Project C242-PS069
 
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![Logo](https://media1.tenor.com/m/giUO2-235vAAAAAd/megumin-staff.gif)
 
 ## Features
 
@@ -46,6 +46,10 @@ Dokumentasi learning path cloud computing yang digunakan pada Capstone Project C
   GET /api/articles/${id}
 ```
 
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Id of item to fetch |
+
 ```
 {
     "status": "success",
@@ -82,14 +86,6 @@ Dokumentasi learning path cloud computing yang digunakan pada Capstone Project C
         "video": "https://youtu.be/O-psaaoiVuA?si=L8DeD3MHGra19f_Z"
     }
 }
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `number` | **Required**. Id of item to fetch |
-
-```
-
 ```
 
 #### Get banner
