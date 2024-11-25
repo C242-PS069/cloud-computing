@@ -1,8 +1,8 @@
 const { articles, detailsArticle } = require('../api/articles');
 const banners = require('../api/banner');
 
-const articlesApi = (request, h) => {
-    const articlesList = articles();
+const articlesApi = async (request, h) => {
+    const articlesList = await articles();
 
     return h
         .response({
@@ -13,10 +13,10 @@ const articlesApi = (request, h) => {
         .code(200);
 };
 
-const detailsArticleApi = (request, h) => {
+const detailsArticleApi = async (request, h) => {
     const { id } = request.params;
 
-    const article = detailsArticle(id);
+    const article = await detailsArticle(id);
 
     if (!article) {
         return h
