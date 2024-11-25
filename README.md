@@ -126,7 +126,7 @@ Dokumentasi learning path cloud computing yang digunakan pada Capstone Project C
 Clone the project
 
 ```bash
-  git clone https://https://github.com/C242-PS069/cloud-computing.git
+  git clone https://github.com/C242-PS069/cloud-computing.git
 ```
 
 Go to the project directory
