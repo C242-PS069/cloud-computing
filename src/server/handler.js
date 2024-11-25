@@ -42,7 +42,7 @@ const bannersApi = async (request, h) => {
     return h
         .response({
             status: 'success',
-            message: 'Articles fetched successfully',
+            message: 'banners fetched successfully',
             data: bannerList,
         })
         .code(200);

@@ -17,7 +17,7 @@ const articles = () => {
     ];
 };
 
-const detailsArticle = async (id) => {
+const detailsArticle = (id) => {
     const detail = [
         {
             id: 1,
