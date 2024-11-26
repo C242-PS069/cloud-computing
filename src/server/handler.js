@@ -4,6 +4,15 @@ const banners = require('../api/banner');
 const articlesApi = async (request, h) => {
     const articlesList = await articles();
 
+    if (articlesList.length === 0) {
+        return h
+            .response({
+                status: 'fail',
+                message: `Articles not found`,
+            })
+            .code(404);
+    }
+
     return h
         .response({
             status: 'success',
@@ -38,6 +47,15 @@ const detailsArticleApi = async (request, h) => {
 
 const bannersApi = async (request, h) => {
     const bannerList = await banners();
+
+    if (bannerList.length === 0) {
+        return h
+            .response({
+                status: 'fail',
+                message: `Banners not found`,
+            })
+            .code(404);
+    }
 
     return h
         .response({

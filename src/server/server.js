@@ -25,7 +25,14 @@ const init = async () => {
             newResponse.code(response.statusCode);
             return newResponse;
         }
-
+        if (response.isBoom) {
+            const newResponse = h.response({
+                status: 'fail',
+                message: response.message,
+            });
+            newResponse.code(response.output.statusCode);
+            return newResponse;
+        }
         return h.continue;
     });
 
