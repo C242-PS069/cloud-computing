@@ -1,4 +1,9 @@
-const { articlesApi, detailsArticleApi, bannersApi } = require('./handler');
+const {
+    articlesApi,
+    detailsArticleApi,
+    bannersApi,
+    recyclesApi,
+} = require('./handler');
 
 const routes = [
     {
@@ -15,6 +20,11 @@ const routes = [
         method: 'GET',
         path: '/api/banners',
         handler: bannersApi,
+    },
+    {
+        method: 'GET',
+        path: '/api/recycles',
+        handler: recyclesApi,
     },
 ];
 

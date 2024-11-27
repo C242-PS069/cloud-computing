@@ -1,5 +1,6 @@
 const { articles, detailsArticle } = require('../api/articles');
 const banners = require('../api/banner');
+const { recycles } = require('../api/recycles');
 
 const articlesApi = async (request, h) => {
     const articlesList = await articles();
@@ -66,4 +67,25 @@ const bannersApi = async (request, h) => {
         .code(200);
 };
 
-module.exports = { articlesApi, detailsArticleApi, bannersApi };
+const recyclesApi = async (request, h) => {
+    const articlesList = await recycles(['plastic bottle', 'paper']);
+
+    if (articlesList.length === 0) {
+        return h
+            .response({
+                status: 'fail',
+                message: `Articles not found`,
+            })
+            .code(404);
+    }
+
+    return h
+        .response({
+            status: 'success',
+            message: 'Articles fetched successfully',
+            data: articlesList,
+        })
+        .code(200);
+};
+
+module.exports = { articlesApi, detailsArticleApi, bannersApi, recyclesApi };
