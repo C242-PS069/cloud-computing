@@ -66,9 +66,6 @@ const routes = [
         method: 'POST',
         path: '/reset-password',
         handler: resetPasswordApi,
-        options: {
-            pre: [{ method: verifyJWT }],
-        },
     },
     {
         method: 'POST',

@@ -138,10 +138,10 @@ const registerApi = async (request, h) => {
                 'https://storage.googleapis.com/user-profile-ecofy/profile.png',
         });
         return h
-            .response({ message: 'User registered successfully' })
+            .response({ error: false, message: 'User registered successfully' })
             .code(201);
     } catch (err) {
-        return h.response({ error: error.message }).code(400);
+        return h.response({ error: err.message }).code(400);
     }
 };
 
@@ -168,11 +168,15 @@ const loginApi = async (request, h) => {
         return h
             .response({
                 message: 'User logged in successfully',
-                userId: token,
+                data: {
+                    uid: user.uid,
+                    name: user.email,
+                    token: token,
+                },
             })
             .code(200);
-    } catch (error) {
-        return h.response({ error: error.message }).code(401);
+    } catch (err) {
+        return h.response({ error: err.message }).code(401);
     }
 };
 
