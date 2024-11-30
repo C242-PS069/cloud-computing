@@ -7,9 +7,24 @@ Dokumentasi learning path cloud computing yang digunakan pada Capstone Project C
 -   Get Articles API
 -   Get Details article API
 -   Get Banner API
--   Get Prediction API
+-   Post Register
+-   Post Login
+-   Post Reset password
+-   Post Edit profile
 
 ## API Reference
+
+#### API TOKEN
+
+```http
+  Before you can use all those APIs (except login and register), you need to get an API Token for all the services we build then use it in headers authorization.
+```
+
+#### How To Get?
+
+```
+Just register and login then you get the api key😇😇
+```
 
 #### Get all items
 
@@ -81,10 +96,83 @@ Dokumentasi learning path cloud computing yang digunakan pada Capstone Project C
 }
 ```
 
-#### Get machine learning prediction
+#### Post register
 
 ```http
-  coming soon
+  POST /register
+```
+
+| Parameter  | Type     | Description   |
+| :--------- | :------- | :------------ |
+| `email`    | `string` | **Required**. |
+| `password` | `string` | **Required**. |
+| `username` | `string` | **Required**. |
+
+```
+{
+    "status": "success",
+    "message": "User registered successfully"
+}
+```
+
+#### Post login
+
+```http
+  POST /login
+```
+
+| Parameter  | Type     | Description   |
+| :--------- | :------- | :------------ |
+| `email`    | `string` | **Required**. |
+| `password` | `string` | **Required**. |
+
+```
+{
+    "status": "success",
+    "message": "User logged in successfully",
+    data: {
+        "uid": string,
+        "name": string,
+        "token": string
+    }
+}
+```
+
+#### Post reset password
+
+```http
+  POST /reset-password
+```
+
+| Parameter | Type     | Description   |
+| :-------- | :------- | :------------ |
+| `email`   | `string` | **Required**. |
+
+```
+{
+    "status": "success",
+    "message": "Password reset email sent successfully",
+}
+```
+
+#### Post edit profile
+
+```http
+  POST /reset-password
+```
+
+| Parameter     | Type     | Description                                         |
+| :------------ | :------- | :-------------------------------------------------- |
+| `newUsername` | `string` | **optional**.                                       |
+| `oldPassword` | `string` | **optional (required if want to change password)**. |
+| `newPassword` | `string` | **optional (required if want to change password)**. |
+| `email`       | `string` | **Required**.                                       |
+
+```
+{
+    "status": "success",
+    "message": "Profile updated successfully",
+}
 ```
 
 ## Run Locally

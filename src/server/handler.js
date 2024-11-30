@@ -138,7 +138,10 @@ const registerApi = async (request, h) => {
                 'https://storage.googleapis.com/user-profile-ecofy/profile.png',
         });
         return h
-            .response({ error: false, message: 'User registered successfully' })
+            .response({
+                status: 'success',
+                message: 'User registered successfully',
+            })
             .code(201);
     } catch (err) {
         return h.response({ error: err.message }).code(400);
@@ -167,6 +170,7 @@ const loginApi = async (request, h) => {
 
         return h
             .response({
+                status: 'success',
                 message: 'User logged in successfully',
                 data: {
                     uid: user.uid,
@@ -187,7 +191,10 @@ const resetPasswordApi = async (request, h) => {
         await sendPasswordResetEmail(auth, email);
 
         return h
-            .response({ message: 'Password reset email sent successfully' })
+            .response({
+                status: 'success',
+                message: 'Password reset email sent successfully',
+            })
             .code(200);
     } catch (error) {
         return h.response({ error: error.message }).code(400);
@@ -221,7 +228,10 @@ const editProfileApi = async (request, h) => {
         }
 
         return h
-            .response({ message: 'Profile updated successfully' })
+            .response({
+                status: 'success',
+                message: 'Profile updated successfully',
+            })
             .code(200);
     } catch (err) {
         return h.response({ error: err.message }).code(400);
