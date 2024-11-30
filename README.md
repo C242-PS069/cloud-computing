@@ -2,8 +2,6 @@
 
 Dokumentasi learning path cloud computing yang digunakan pada Capstone Project C242-PS069
 
-![Logo](https://media1.tenor.com/m/giUO2-235vAAAAAd/megumin-staff.gif)
-
 ## Features
 
 -   Get Articles API
