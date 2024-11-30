@@ -17,7 +17,7 @@ Dokumentasi learning path cloud computing yang digunakan pada Capstone Project C
 #### API TOKEN
 
 ```http
-  Before you can use all those APIs (except login and register), you need to get an API Token for all the services we build then use it in headers authorization.
+  Before you can use all those APIs (except login, register and reset password), you need to get an API Token for all the services we build then use it in headers authorization.
 ```
 
 #### How To Get?
@@ -208,8 +208,9 @@ Start the server
 
 ## Deployment
 
--   **Cloud Storage**: to save machine learning models
--   **Cloud Firestore**: to save machine learning output
+-   **Cloud Storage**: to save machine learning models and fixed profile user
+-   **Cloud Firestore**: to save machine learning output and data user
+-   **Firebase**: to user login
 -   **Cloud Run**: to deploy backend services
 -   **App Engine**: to deploy mobile application
 
