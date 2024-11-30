@@ -85,7 +85,7 @@ Just register and login then you get the api key😇😇
 ```
 {
     "status": "success",
-    "message": "Articles fetched successfully",
+    "message": "Banners fetched successfully",
     "data": [
         {
             "id": number,
