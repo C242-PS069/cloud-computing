@@ -26,4 +26,14 @@ const recycles = async (input) => {
     }
 };
 
-module.exports = { recycles };
+const detailsRecycle = async (id) => {
+    try {
+        const docRef = db.collection('details-kreasi-daur-ulang').doc(id);
+        const doc = await docRef.get();
+        return doc.data();
+    } catch (err) {
+        console.error(err.message);
+    }
+};
+
+module.exports = { recycles, detailsRecycle };
