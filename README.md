@@ -158,7 +158,7 @@ Just register and login then you get the api key😇😇
 #### Post edit profile
 
 ```http
-  POST /reset-password
+  POST /edit-profile
 ```
 
 | Parameter     | Type     | Description                                         |
