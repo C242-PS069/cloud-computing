@@ -11,6 +11,8 @@ Dokumentasi learning path cloud computing yang digunakan pada Capstone Project C
 -   Post Login
 -   Post Reset password
 -   Post Edit profile
+-   Post Predict image
+-   Get Details Predict Data
 
 ## API Reference
 
@@ -174,6 +176,82 @@ Just register and login then you get the api key😇😇
     "message": "Profile updated successfully",
 }
 ```
+
+#### Post edit profile
+
+```http
+  POST /predict
+```
+
+| Parameter     | Type     | Description                                         |
+| :------------ | :------- | :-------------------------------------------------- |
+| `image` | `application/form-data` | **required**.                                       |
+
+```
+{
+    "status": "success",
+    "message": "Predict fetched successfully",
+    "data": [
+        {
+            "id": number,
+            "description": string,
+            "image": string,
+            "materials": [
+                string,
+                ...
+            ],
+            "title": string
+        },
+        ...
+    ],
+    "predict": {
+        "confident": string,
+        "label": string
+    }
+}
+```
+
+#### Get item
+
+```http
+  GET /api/recycles/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Id of item to fetch |
+
+```
+{
+    "status": "success",
+    "message": "recycle fetched successfully",
+    "data": {
+        "id": number,
+        "description": string,
+        "makes": {
+            "step": [
+              string
+              ...
+            ],
+            "title": string
+        },
+        "title": string,
+        "materials": [
+            string
+            ...
+        ],
+        "tools": {
+            "materials-tools": [
+              string
+              ...
+            ],
+            "title": string
+        },
+        "video": string
+    }
+}
+```
+
 
 ## Run Locally
 
