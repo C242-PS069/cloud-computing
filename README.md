@@ -30,6 +30,8 @@ Just register and login then you get the api key😇😇
 
 #### Get all items
 
+if you want to get articles
+
 ```http
   GET /api/articles
 ```
@@ -50,6 +52,8 @@ Just register and login then you get the api key😇😇
 ```
 
 #### Get item
+
+if you want to get details articles
 
 ```http
   GET /api/articles/${id}
@@ -80,6 +84,8 @@ Just register and login then you get the api key😇😇
 
 #### Get banner
 
+if you want to get image banner
+
 ```http
   GET /api/banners
 ```
@@ -100,6 +106,8 @@ Just register and login then you get the api key😇😇
 
 #### Post register
 
+if you want to register
+
 ```http
   POST /register
 ```
@@ -118,6 +126,8 @@ Just register and login then you get the api key😇😇
 ```
 
 #### Post login
+
+if you want to login
 
 ```http
   POST /login
@@ -142,6 +152,8 @@ Just register and login then you get the api key😇😇
 
 #### Post reset password
 
+if you forget your password you can use it
+
 ```http
   POST /reset-password
 ```
@@ -158,6 +170,8 @@ Just register and login then you get the api key😇😇
 ```
 
 #### Post edit profile
+
+if you want to edit your profile
 
 ```http
   POST /edit-profile
@@ -177,15 +191,17 @@ Just register and login then you get the api key😇😇
 }
 ```
 
-#### Post edit profile
+#### Post predict
+
+use this if you want to send image to machine learning feature
 
 ```http
   POST /predict
 ```
 
-| Parameter     | Type     | Description                                         |
-| :------------ | :------- | :-------------------------------------------------- |
-| `image` | `application/form-data` | **required**.                                       |
+| Parameter | Type                    | Description   |
+| :-------- | :---------------------- | :------------ |
+| `image`   | `application/form-data` | **required**. |
 
 ```
 {
@@ -211,7 +227,9 @@ Just register and login then you get the api key😇😇
 }
 ```
 
-#### Get item
+#### Get details data predict
+
+if you want to know about details
 
 ```http
   GET /api/recycles/${id}
@@ -252,7 +270,6 @@ Just register and login then you get the api key😇😇
 }
 ```
 
-
 ## Run Locally
 
 Clone the project
@@ -287,9 +304,9 @@ Start the server
 ## Deployment
 
 -   **Cloud Storage**: to save machine learning models and fixed profile user
--   **Cloud Firestore**: to save machine learning output and data user
+-   **Cloud Firestore**: to save data user
 -   **Firebase**: to user login
--   **Cloud Run**: to deploy backend services
+-   **Cloud Run**: to deploy backend services and machine learning prediction services
 -   **App Engine**: to deploy mobile application
 
 ## Cloud Computing Cohort
