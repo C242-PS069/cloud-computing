@@ -92,7 +92,7 @@ const recyclesApi = async (request, h) => {
         formData.append('image', image, 'image.jpg');
 
         const response = await axios.post(
-            'http://0.0.0.0:8080/predict',
+            process.env.PYTHON_INFERENCE,
             formData,
             {
                 headers: {
