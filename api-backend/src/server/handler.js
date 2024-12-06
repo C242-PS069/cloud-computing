@@ -92,7 +92,7 @@ const recyclesApi = async (request, h) => {
         formData.append('image', image, 'image.jpg');
 
         const response = await axios.post(
-            process.env.PYTHON_INFERENCE,
+            `${process.env.PYTHON_INFERENCE}/predict`,
             formData,
             {
                 headers: {
@@ -109,7 +109,6 @@ const recyclesApi = async (request, h) => {
         }
 
         const predictions = response.data;
-        console.log(predictions);
 
         const dataMachineLearning = await recycles([
             predictions.predicted_class,
@@ -126,6 +125,10 @@ const recyclesApi = async (request, h) => {
                 status: 'success',
                 message: 'Predict fetched successfully',
                 data: dataMachineLearning,
+                predict: {
+                    confident: predictions.confidence,
+                    label: predictions.predicted_class,
+                },
             })
             .code(200);
     } catch (err) {

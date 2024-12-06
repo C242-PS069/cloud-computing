@@ -1,6 +1,5 @@
 const { Firestore } = require('@google-cloud/firestore');
 
-// Initialize Firestore
 const db = new Firestore();
 
 async function banners() {
